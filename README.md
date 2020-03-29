@@ -9,16 +9,16 @@
 $ ng new <APPLICATION_NAME>
 ```
 
-### Install browsersync
+### Install browsersync and dependencies
 
 ```
-$ npm install --save-dev browsersync
+$ npm install --save-dev browsersync npm-run-all rimraf wait-on
 ```
 
 ### Create Browsersync config
 
 ```
-$ npx browser-sync init
+$ browser-sync init
 ```
 
 ### Edit config
@@ -34,4 +34,34 @@ module.exports = {
     }
   }
 };
+```
+
+### Edit start script
+
+```json:json
+    "prestart": "npm run clean",
+    "start": "run-p build serve",
+    "build": "ng build --watch",
+    "serve": "wait-on dist/index.html && browser-sync start --config bs-config.js",
+    "clean": "rimraf dist"
+```
+
+## Run
+
+### Start with browsersync
+
+```
+$ npm run start
+```
+
+### Only build
+
+```
+$ npm run build
+```
+
+### Only start browsersync
+
+```
+$ npm run serve
 ```
