@@ -1,5 +1,5 @@
 <h3 align="center">ng-browsersync</h3>
-<p align="center">Sample aplication as ANgular with Browsersync .</p>
+<p align="center">Sample application as Angular with Browsersync .</p>
 
 ## Steps
 
