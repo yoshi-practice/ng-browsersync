@@ -15,9 +15,23 @@ $ ng new <APPLICATION_NAME>
 $ npm install --save-dev browsersync
 ```
 
-### Create Browsersync config 
+### Create Browsersync config
 
 ```
 $ npx browser-sync init
 ```
 
+### Edit config
+
+```javascript:bs-config.js
+module.exports = {
+  server: {
+    baseDir: "dist/ng-browser-sync",
+    watch: "true",
+    middleware: [require("connect-history-api-fallback")()],
+    routes: {
+      "/node_modules": "node_modules"
+    }
+  }
+};
+```
